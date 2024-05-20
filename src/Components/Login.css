@@ -48,6 +48,10 @@
     letter-spacing: 2px;
     background-color: #0D6EFD;
     border:none;
+
+    &:hover{
+        background-color: #0261ef9f
+    }
 }
 
 .login-text{

@@ -7,53 +7,21 @@ import WatchList from "../Assets/images/watchlist-icon.svg";
 import Originals from "../Assets/images/original-icon.svg";
 import MovieIcon from "../Assets/images/movie-icon.svg";
 import SeriesIcon from "../Assets/images/series-icon.svg";
-import { auth, provider } from "../firebase";
-import {useNavigate} from "react-router-dom"
+import { UserDetail } from "../Interface/Movie.Interface";
 
-export const Header = () => {
+interface HeaderInputProps{
+    userDetail?: UserDetail,
+    handleAuth?: () => void
+}
 
-    const [userDetail, setUserDetail] = useState({
-        name:"",
-        email:"",
-        photo:""
-    })
-
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        auth.onAuthStateChanged(async (user) => {
-              if(user){
-                setUserDetail({
-                    name:  user.displayName,
-                    email: user.email,
-                    photo: user.photoURL
-                })
-                navigate('/home')
-              }
-        })
-    },[userDetail.name])
-
-    const handleAuth = () => {
-        auth
-        .signInWithPopup(provider)
-        .then(result => {
-            console.log(result);
-            setUserDetail({
-                name:  result.user.displayName,
-                email: result.user.email,
-                photo: result.user.photoURL
-            })
-        })
-        .catch(error  => console.log(error));
-
-    }
+export const Header = ({userDetail, handleAuth}: HeaderInputProps) => {
     return (
         <div className="headerContainer">
             <div className="hotstarLogo">
                 <img src={Logo}  alt=""/>
             </div>
-            {!userDetail.name? <button onClick={handleAuth} className="headerLogin">LOGIN</button> : <>
-                <div className="headerMenu">
+            {!userDetail?.name? <button onClick={handleAuth} className="headerLogin">LOGIN</button> : <>
+            <div className="headerMenu">
                 <a style={{ textDecoration: "none" }} href="/home">
                     <img src={HomeIcon} alt=""/>
                     <span>HOME</span>
@@ -79,7 +47,12 @@ export const Header = () => {
                     <span>SERIES</span>
                 </a>
             </div>
-            <img className="login-photo" src={userDetail.photo} alt={userDetail.name}/>
+            <div className="logout-section">
+                { userDetail.photo && <img className="login-photo" src={userDetail.photo} alt={userDetail.name}/>}
+                <div className="sign-out" onClick={handleAuth}>
+                    <span>Sign out</span>
+                </div>
+            </div>
             </>}
         
 

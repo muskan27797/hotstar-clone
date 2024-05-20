@@ -93,11 +93,43 @@
     color:#090b13;
 }
 
+.logout-section{
+   position:relative;
+   display:flex;
+   align-items:center;
+   justify-content: center;
+   cursor: pointer;
+   height:48px;
+   width:48px;
 
-.login-photo{
-    width: 70px;
+   img{
+    height:100%;
+    width:100%;
     border-radius: 50px;
+   }
+
+   &:hover{
+    > .sign-out{
+       visibility: visible;
+    }
+   }
+
+   .sign-out {
+    position:absolute;
+    top:53px;
+    background-color: rgb(19,19,19) ;
+    padding:10px;
+    border:1px solid rgba(151,151,151,0.34);
+    border-radius: 6px;
+    box-shadow: rgb(0 0 0 / 50%) 0px 0px 18px 0px;
+    font-size:14px;
+    letter-spacing:3px;
+    width:80px;
+    visibility: hidden;
 }
+ }
 
-
+.login-photo {
+    height:100%;
+}
 

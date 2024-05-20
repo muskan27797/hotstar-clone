@@ -1,0 +1,12 @@
+.home-container {
+    min-height: calc(100vh - 500px);
+    overflow-x: hidden;
+    display: block;
+    width:100%;
+    top: 135px;
+    background-image: url('../Assets/images/home-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index:-1; 
+}
