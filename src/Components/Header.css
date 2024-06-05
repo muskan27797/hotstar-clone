@@ -30,7 +30,7 @@
     word-spacing: 13px;
     letter-spacing: 4px;
 
-    a{
+    div{
         display:flex;
         align-items: center;
         padding:0px 12px; 

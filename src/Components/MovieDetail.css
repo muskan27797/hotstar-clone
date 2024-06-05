@@ -1,7 +1,7 @@
 .moviedetail-container {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction:column;
     top: 108px;
     min-height: calc(100vh - 500px);
     overflow-x: hidden;
@@ -30,7 +30,7 @@
     display:flex;
     align-items:flex-end;
     justify-content: flex-start;
-    height:30vw;
+    height:26vw;
     min-height:170px;
     padding-bottom: 24px;
     width: 100%;
@@ -40,4 +40,150 @@
         min-width:200px;
         width:35vw;
     }
+}
+
+.movie-description-container{
+    max-width: 874px;
+    display:flex;
+    flex-direction:column
+}
+
+.movie-buttons{
+    align-items:center;
+    display:flex;
+    flex-wrap: nowrap;
+    margin: 24px 0px;
+    min-height:56px;
+}
+
+.movie-button{
+    height: 56px;
+    font-size: 15px;
+    padding:0px 24px;
+    margin:0 22px 0 0;
+    align-items:center;
+    display:flex;
+    border-radius: 4px;
+    cursor:pointer;
+    justify-content: center;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;    
+    img{
+        width: 32px;
+    }
+
+    &:hover{
+        background-color: rgb(198,198,198) ;
+    }
+
+    @media (max-width: 768px) {
+        height: 45px;
+        padding: 0 12px;
+        font-size: 12px;
+        margin:0 10px 0 0;
+
+        img{
+            width: 25px;
+        }
+    }
+}
+
+.play {
+    background-color:white;
+    color:black;
+}
+
+.trailer{
+    background-color: rgb(0,0,0,0.3);
+    border: 1px solid rgb(249, 249, 249);
+    color:rgb(249, 249, 249);
+}
+
+.add-list{
+    border:2px solid white;
+    border-radius:50%;
+    background-color: rgb(0,0,0,0.6);
+    height:44px;
+    width:44px;
+    margin-right:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    position:relative;
+
+    span{
+        background-color: rgb(249, 249, 249);
+        display: inline-block;
+
+        &:first-child{
+            height:2px;
+            width:16px;
+            transform: translate(1px, 0px);
+        }
+        &:nth-child(2){
+            height:16px;
+            width:2px;
+            transform: translateX(-8px);
+        }
+    }
+
+    &:hover{
+        background-color: rgb(198,198,198) ;
+        .tooltip-text{
+            visibility: visible
+        };
+    }
+
+}
+
+.group-icon{
+    border:2px solid white;
+    border-radius:50%;
+    background-color: rgb(0,0,0,0.6);
+    height:44px;
+    width:44px;
+    margin-right:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+} 
+
+.short-description{
+       letter-spacing: 1.8px;
+       color: rgb(249, 249, 249);
+       margin-bottom:10px;
+       font-size: 18px;
+       min-height:20px;
+
+       @media (max-width:768px){
+        font-size: 14px
+       }
+}
+
+.description{
+    letter-spacing: 1px;
+    font-size: 20px;
+    padding:24px 0px;
+    color: rgb(249, 249, 249);
+    min-height:20px;
+
+    @media (max-width:768px){
+        font-size: 14px
+       }
+}
+
+.tooltip-text{
+    position:absolute;
+    left:18px;
+    top:-25px;
+    width: max-content;
+    border:1px solid rgb(190, 190, 190);
+    padding: 4px;
+    margin:2px;
+    background-color: #090b13;
+    color:white;
+    border-radius: 4px;
+    visibility: hidden;
 }

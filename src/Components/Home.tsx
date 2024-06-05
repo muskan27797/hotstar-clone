@@ -7,17 +7,22 @@ import { NewDisneyVideo } from './NewDisneyVideo';
 import { Originals } from './Originals';
 import { Trending } from './Trending';
 import { useDatabaseHook } from '../Hooks/useDatabaseHook';
-import React, { Suspense } from 'react';
-import { useUserInfoHook } from '../Hooks/useUserInfoHook';
+import { Suspense, useRef } from 'react';
 
 export const Home = () => {
 
   const { movieCategory } = useDatabaseHook();
-  const { userDetail, handleAuth } = useUserInfoHook();
+  const originalRef = useRef<HTMLDivElement>(null);
+
+  const scrollToOriginals = ()=>{
+    if(originalRef.current){
+      originalRef.current.scrollIntoView({behavior: "smooth"})
+    }
+  }
 
   return (
     <>
-      <Header userDetail={userDetail} handleAuth={handleAuth}></Header>
+      <Header scrollToOriginals={scrollToOriginals} ></Header>
       <div className='home-container'>
         <ImgSlider></ImgSlider>
         <Viewers />
@@ -28,7 +33,7 @@ export const Home = () => {
           <NewDisneyVideo movieCategory={movieCategory.newDisney} />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
-          <Originals movieCategory={movieCategory.original} />
+          <Originals ref={originalRef} movieCategory={movieCategory.original} />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
           <Trending movieCategory={movieCategory.trending} />

@@ -1,0 +1,21 @@
+.type-container{
+    display:flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+  
+  .type-heading{
+    text-align:center;
+    font-size:36px;
+    font-weight:600;
+    padding:80px;
+    text-transform: capitalize;
+    position:relative;
+    top:80px;
+
+  }
+  
+  .type-items {
+   margin:50px 0px;
+  }

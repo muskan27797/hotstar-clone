@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { UserDetail } from "../Interface/Movie.Interface";
 import { auth, provider } from "../firebase";
 import {useNavigate} from "react-router-dom"
-import React from "react";
 
 export const useUserInfoHook = ()=>{
     
@@ -56,6 +55,7 @@ export const useUserInfoHook = ()=>{
 
     return{
         handleAuth,
-        userDetail
+        userDetail,
+        isUserLoggedIn: !!userDetail?.name,
     }
 }

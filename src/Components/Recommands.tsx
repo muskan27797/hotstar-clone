@@ -1,6 +1,6 @@
 import { MovieInterface } from "../Interface/Movie.Interface";
 import "./Recommands.css";
-import { VideoContainer } from "./VideoContainer";
+import { MovieCard } from "./MovieCard";
 import React from "react";
 
 interface RecommendProps {
@@ -9,8 +9,8 @@ interface RecommendProps {
 export const Recommands=({movieCategory}: RecommendProps )=>{
     return(
         <div className="recommand-container">
-            <h4>Recommanded for you</h4>
-            <VideoContainer movieCategory = {movieCategory}></VideoContainer>
+            <h4 className="reccomend-heading">Recommanded for you</h4>
+            <MovieCard movieCategory = {movieCategory}></MovieCard>
         </div>
     )
 }

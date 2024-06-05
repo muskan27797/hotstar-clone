@@ -1,6 +1,6 @@
 import { MovieInterface } from "../Interface/Movie.Interface";
 import "./Trending.css";
-import { VideoContainer } from "./VideoContainer";
+import { MovieCard } from "./MovieCard";
 import React from "react";
 
 interface TrendingProps {
@@ -10,8 +10,8 @@ interface TrendingProps {
 export const Trending=({movieCategory}: TrendingProps)=>{
     return(
         <div className="trending-container">
-            <h4>Trending</h4>
-            <VideoContainer movieCategory={movieCategory}></VideoContainer>
+            <h4 className="trending-heading">Trending In India</h4>
+            <MovieCard movieCategory={movieCategory}></MovieCard>
         </div>
     )
 }

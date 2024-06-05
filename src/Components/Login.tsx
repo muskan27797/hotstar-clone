@@ -1,15 +1,17 @@
-import react from "react";
+import react, { useContext } from "react";
 import "./Login.css";
 import Logo1 from "../Assets/images/cta-logo-one.svg" 
 import Logo2 from "../Assets/images/cta-logo-two.png" 
 import { Header } from "./Header";
 import { useUserInfoHook } from "../Hooks/useUserInfoHook";
+import { UserLoginContext } from "../App";
 
 export const Login = () => {
-    const {handleAuth, userDetail} = useUserInfoHook() 
+    const {handleAuth} = useContext(UserLoginContext)
+
 return(
     <div className="loginContainer">
-        <Header handleAuth={handleAuth} userDetail={userDetail} ></Header>
+        <Header ></Header>
         <div className="container">
             <div className="image1">
                <img className="logo1" src={Logo1}/>

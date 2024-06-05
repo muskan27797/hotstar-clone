@@ -1,6 +1,6 @@
 import { MovieInterface } from "../Interface/Movie.Interface";
 import "./NewDisneyVideo.css";
-import { VideoContainer } from "./VideoContainer";
+import { MovieCard } from "./MovieCard";
 import React from "react";
 
 interface NewDisneyProps {
@@ -10,8 +10,8 @@ interface NewDisneyProps {
 export const NewDisneyVideo = ({movieCategory}: NewDisneyProps) => {
     return(
         <div className="newDisneyplus-container">
-            <h4>New to Disney +</h4>
-            <VideoContainer movieCategory={movieCategory}></VideoContainer>
+            <h4 className="newDisneyplus-heading">New to Disney +</h4>
+            <MovieCard movieCategory={movieCategory}></MovieCard>
         </div>
     )
 }
